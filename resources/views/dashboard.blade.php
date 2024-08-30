@@ -1,17 +1,40 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.backendLayout')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@section('title')
+    導覽頁
+@endsection
+
+@section('main_content')
+    <v-container>
+        <v-row>
+            <v-col>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda incidunt blanditiis, obcaecati beatae
+                consequuntur excepturi dolore id repellendus saepe asperiores nobis quaerat fugiat dolor eius quos? Magnam
+                architecto harum distinctio!
+
+            </v-col>
+        </v-row>
+        <v-row>
+    </v-container>
+@endsection
+
+@push('scripts')
+    <script>
+        const app = new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data: {
+                // 必要的
+                {!! $drawer !!}
+                // 自己的
+                localData: '這是本地變數',
+            },
+
+            methods: {
+                showLocalData() {
+                    alert(this.localData);
+                }
+            }
+        });
+    </script>
+@endpush
